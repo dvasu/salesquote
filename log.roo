@@ -1,0 +1,42 @@
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-05 15:12:27
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-05 15:14:32
+project --topLevelPackage com.ingenuity.salesquote 
+persistence setup --database POSTGRES --provider HIBERNATE 
+database properties list
+database properties set --key database.url --value jdbc:postgresql://localhost:5432/salesquote
+database properties set --key database.password --value admin94063++
+database properties set --key database.username --value postgres
+database properties list
+entity jpa --class ~.domain.Category --testAutomatically 
+field string --fieldName name --unique true --notNull true
+field string --fieldName description --notNull true
+entity jpa --class ~.domain.Sku --testAutomatically 
+field string --fieldName name --unique true --notNull true
+field number --fieldName price --type java.math.BigDecimal
+field number --fieldName term --type int
+field reference --fieldName category --type ~.domain.Category --cardinality MANY_TO_ONE 
+entity jpa --class ~.domain.SalesOrder --testAutomatically 
+field reference --fieldName sku --type ~.domain.Sku
+field number --fieldName quanity --type int
+entity jpa --class ~.domain.Quote --testAutomatically 
+field set --fieldName orders --class ~.domain.Quote --type ~.domain.SalesOrder --cardinality MANY_TO_MANY 
+field string --fieldName customer --notNull true
+field string --fieldName salesrep --notNull 
+field number --fieldName discount --type int
+field date --fieldName quotedate --type java.util.Date
+json all
+web mvc json setup
+web mvc json all
+web mvc all --package ~.web
+perform tests
+selenium test --controller ~.CategoryController
+selenium test --controller ~.QuoteController
+selenium test --controller ~.SalesOrderController
+selenium test --controller ~.SkuController
+selenium test --controller ~.CategoryController
+quit
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-10-05 15:38:13
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-05 15:38:23
+perform command --mavenCommand idea:idea
+quit
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-10-05 15:54:44

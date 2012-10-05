@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_ingenuity_salesquote_domain_Sku" items="${skus}" z="2z2+ettZxM4LodVlCkCqSP1Fl0U=">
+        <table:table data="${skus}" id="l_com_ingenuity_salesquote_domain_Sku" path="/skus" z="B0cuXw5a3cMDRxBHiQBo0Ok7fJg=">
+            <table:column id="c_com_ingenuity_salesquote_domain_Sku_name" property="name" z="sx3T0Tol6HOkx/4tdqtnfJ6gjhs="/>
+            <table:column id="c_com_ingenuity_salesquote_domain_Sku_price" property="price" z="oy3YPjo8Nqb0dXoQlbzhl92RSUg="/>
+            <table:column id="c_com_ingenuity_salesquote_domain_Sku_term" property="term" z="q6N8cKW4sMnO7HkMxTgxTwhmxQI="/>
+            <table:column id="c_com_ingenuity_salesquote_domain_Sku_category" property="category" z="HCqMMBTv1e3X2MTUzeyTxGt7dlA="/>
+        </table:table>
+    </page:list>
+</div>

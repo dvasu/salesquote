@@ -1,0 +1,21 @@
+<aspectj>
+<aspects>
+<aspect name="com.ingenuity.salesquote.domain.SkuIntegrationTest_Roo_Configurable"/>
+<aspect name="com.ingenuity.salesquote.domain.SkuIntegrationTest_Roo_IntegrationTest"/>
+<aspect name="com.ingenuity.salesquote.domain.QuoteIntegrationTest_Roo_IntegrationTest"/>
+<aspect name="com.ingenuity.salesquote.domain.SalesOrderIntegrationTest_Roo_IntegrationTest"/>
+<aspect name="com.ingenuity.salesquote.domain.QuoteIntegrationTest_Roo_Configurable"/>
+<aspect name="com.ingenuity.salesquote.domain.SkuDataOnDemand_Roo_DataOnDemand"/>
+<aspect name="com.ingenuity.salesquote.domain.SalesOrderDataOnDemand_Roo_DataOnDemand"/>
+<aspect name="com.ingenuity.salesquote.domain.QuoteDataOnDemand_Roo_DataOnDemand"/>
+<aspect name="com.ingenuity.salesquote.domain.CategoryIntegrationTest_Roo_Configurable"/>
+<aspect name="com.ingenuity.salesquote.domain.SkuDataOnDemand_Roo_Configurable"/>
+<aspect name="com.ingenuity.salesquote.domain.CategoryIntegrationTest_Roo_IntegrationTest"/>
+<aspect name="com.ingenuity.salesquote.domain.QuoteDataOnDemand_Roo_Configurable"/>
+<aspect name="com.ingenuity.salesquote.domain.CategoryDataOnDemand_Roo_DataOnDemand"/>
+<aspect name="com.ingenuity.salesquote.domain.SalesOrderIntegrationTest_Roo_Configurable"/>
+<aspect name="com.ingenuity.salesquote.domain.CategoryDataOnDemand_Roo_Configurable"/>
+<aspect name="com.ingenuity.salesquote.domain.SalesOrderDataOnDemand_Roo_Configurable"/>
+</aspects>
+</aspectj>
+

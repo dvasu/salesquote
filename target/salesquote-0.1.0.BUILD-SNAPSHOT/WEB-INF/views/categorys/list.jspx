@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_ingenuity_salesquote_domain_Category" items="${categorys}" z="f9IWGJxUQpf1sN86JCi/a/668W8=">
+        <table:table data="${categorys}" id="l_com_ingenuity_salesquote_domain_Category" path="/categorys" z="A+8IQhG+tNUjAezTHvBKdWe4rWo=">
+            <table:column id="c_com_ingenuity_salesquote_domain_Category_name" property="name" z="ngklOG/snQMCZdVps8AVUTVyfk8="/>
+            <table:column id="c_com_ingenuity_salesquote_domain_Category_description" property="description" z="w67xsMPiyz66VQd8t95xf7p1Ym8="/>
+        </table:table>
+    </page:list>
+</div>
