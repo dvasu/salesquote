@@ -163,8 +163,8 @@ run target tomcat:run or jetty:run
 //create a Procfile in the project root and add this to it
 web: java $JAVA_OPTS -jar target/dependency/jetty-runner.jar --port $PORT target/*.war
 
-// git stuff (do i need to add .gitignore)
-//Prevent build artifacts from going into revision control by creating a .gitignore file and add this to it
+// prepare git
+//Prevent build artifacts from going into revision control by creating a .gitignore file in the project root and add this to it
 target
 // initialize git
 git init
@@ -178,16 +178,16 @@ heroku create // this creates a heroku stack with a URL for the app and a remote
 
 git push heroku master
 
-// other debugging situations when git loses network connection when you are trying to push
+// the above step will deploy your app to the cloud. Note the app URL and type it in the browser. you should see your app now working and available for the entire world to see!
+
+// debugging situations when git loses network connection when you are trying to push
 git remote -v
-git remote rm heroku // remote the remote git if it’s not created properly
-// sometimes if you have an old version of git, you may encounter ssh issues. For example, my cygwin install came with a buggy version of git. make sure cygwin/git is not in the path and install a fresh GIT
+git remote rm heroku // remote the remote git if it was not created properly
+// sometimes if you have an old version of git, you may encounter ssh issues such as public key permission denied. For example, my cygwin install came with a buggy version of git. make sure cygwin/git is not in the path and install a fresh GIT
 
 // look at logs
 heroku logs --tail
 
-// create some orders on the web site
-// demonstrate the REST APIs using IntelliJ REST Client
 
 // Other Heroku features
 //collaboration. you can add collaborators to your project by going to the Heroku dashboard and inviting people you want to collaborate
@@ -230,7 +230,10 @@ mvn tomcat:run
 // add some data to your app and search for them in the admin tool
 http://localhost:8983/solr/admin/
 
-// add iReport category since it's not in the Solr index right now. also show how the existing categories in the index work
+// add some categories in the web app and verify that you can search for them using the Solr admin tool 
+
+// you need to know Solr query sytax. simple field queries are of the form field_name:query_string
+
 // SolrJ offers REST APIs for search
 // You can use these APIs in your web app to provide full text search capabilities
 
