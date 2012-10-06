@@ -1,0 +1,237 @@
+// Step 0: What you need
+Make sure you have Maven and Java 1.6 or higher
+GIT
+Download Spring Roo
+(http://s3.amazonaws.com/dist.springframework.org/release/ROO/spring-roo-1.2.2.RELEASE.zip)
+For this demo, install PostgresSQL locally (http://www.postgresql.org/download/)
+Open an account on Heroku (http://www.heroku.com/).
+Install Heroku Toolbelt which includes the Heroku command line tool (https://toolbelt.heroku.com/)
+
+//Step:1Setup from scratch using Roo command line. If you want skip this and just get the project based on the roo file you can simply run roo>roo script --file log.roo and go to Step 6
+// Step2:Create project and set up persistence
+roo>project --topLevelPackage com.ingenuity.salesquote
+roo>persistence setup --database POSTGRES --provider HIBERNATE
+roo>database properties list
+roo>database properties set --key  database.url --value jdbc:postgresql://localhost:5432/salesquote
+roo>database properties set --key database.username --value postgres
+roo>database properties set --key database.password --value admin94063++
+roo>database properties list
+
+// Step3:Create domain objects
+roo>entity jpa --class  ~.domain.category --testAutomatically
+roo>field string --fieldName name --unique true --notNull true
+roo>field string --fieldName description --notNull true
+
+roo>entity jpa --class ~.domain.Sku --testAutomatically
+roo>field string --fieldName name --unique true --notNull true
+roo>field number --fieldName price --type java.math.BigDecimal
+roo>field number --fieldName term --type int
+roo>field reference --fieldName category --type ~.domain.Category --cardinality MANY_TO_ONE
+
+roo>entity jpa --class ~.domain.SalesOrder --testAutomatically
+roo>field reference --fieldName sku --type ~.domain.Sku
+roo>field number --fieldName quantity --type int
+
+roo>entity jpa --class ~.domain.quote --testAutomatically
+roo>field set --fieldName orders --class ~.domain.Quote --type ~.domain.SalesOrder --cardinality MANY_TO_MANY
+roo>field string --fieldName customer --notNull true
+roo>field string --fieldName salesrep --notNull true
+roo>field number --fieldName discount --type int
+roo>field date --fieldName quotedate --type java.util.Date
+
+// Step4:Setup JSON and WEB
+roo>json all
+roo>web mvc json setup //Roo shell command configures the current project to support JSON integration using Spring MVC.
+roo>web mvc json all // Adds controllers
+roo>web mvc all --package ~.web // controllers for all the JPA entities
+
+// Run the automated tests to make sure everthing so far is working
+roo>perform tests
+// Step5: Add Selenium tests
+roo>selenium test --controller ~.CategoryController
+roo>selenium test --controller ~.QuoteController
+roo>selenium test --controller ~.SkuController
+roo>selenium test --controller ~.SalesOrderController
+roo>quit
+
+// from your command line
+mvn package
+mvn tomcat:run
+
+// Play with the app
+http://localhost:8080/salesquote
+
+// demo the app, including creating different objects, try to create duplicates, modify and delete
+
+// convert this into a IntelliJ project
+roo>perform command --mavenCommand idea:idea
+
+// Step6:Using IntelliJ
+// Open the IntelliJ project and switch to View->Tools Window to see the project in a familiar way
+// Reimport maven projects by clicking on the first refresh icon in the maven tools window
+// Run Maven commands within IntelliJ (package, run)
+
+// show spring roo console in IntelliJ (11.X)
+// Testing JSON REST APIs
+// Download REST client plugin for IntelliJ, or you can use other REST testing tools
+// open REST Client and switch to Split mode, so you can see all the windows properly
+
+// get the list of existing categories
+URL: http://localhost:8080/salesquote/categorys
+Method: GET
+Add these two Headers
+Key: Application-Type, Value: application/json
+Key: Accept, Value: application/json
+
+// create a new category
+// set the body content type in the request to application/json
+// set this in the request body (e.g.)
+{"description":"Ingenuity Pathways Analysis","name":"IPA"}
+
+// switch back to GET and display the existing categories
+
+
+// Step7: change the quotedate so that it's auto generated
+// add render="false" attribute for the field element corresponding to date in /webapp/WEB-INF/views/quote/create.jspx and update.jspx
+// add this code to SalesQuote.java
+ @PreUpdate
+ @PrePersist
+    void updateDates() {
+      if (quotedate == null) {
+        quotedate = new Date();
+      }
+    }
+
+// Compile, run and verify that the quote date is now displayed automatically
+
+// Step8: prepare for Heroku
+// add this to pom.xml
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>8.1.4.v20120524</version>
+                <configuration>
+                    <webAppConfig>
+                        <contextPath>/${project.name}</contextPath>
+                    </webAppConfig>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.3</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>org.mortbay.jetty</groupId>
+                                    <artifactId>jetty-runner</artifactId>
+                                    <version>7.4.5.v20110725</version>
+                                    <destFileName>jetty-runner.jar</destFileName>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+// compile just to make sure
+mvn package
+// run locally on Jetty
+java -jar target/dependency/jetty-runner.jar target/*.war
+
+// setup DATABASE_URL property. Externalizing configuration properties is a good practice
+// add this to applicationContext.xml
+<bean id="dbUrl" class="java.net.URI"> <constructor-arg value="${DATABASE_URL}"/> </bean>
+
+// replace hard-coded database properties in applicationContext.xml with these
+        <property value="#{ 'jdbc:postgresql://' + @dbUrl.getHost() + @dbUrl.getPath() }" name="url"/>
+        <property value="#{ @dbUrl.getUserInfo().split(':')[0] }" name="username"/>
+        <property value="#{ @dbUrl.getUserInfo().split(':')[1] }" name="password"/>
+
+//set up the environment variable on the command line to run from the command line
+set DATABASE_URL=postgres://postgres:admin94063++@localhost:5432/salesquote
+// run locally
+// Or you can setup the environment variable in IntelliJ under Maven->Runner
+run target tomcat:run or jetty:run
+
+//create a Procfile in the project root and add this to it
+web: java $JAVA_OPTS -jar target/dependency/jetty-runner.jar --port $PORT target/*.war
+
+// git stuff (do i need to add .gitignore)
+//Prevent build artifacts from going into revision control by creating a .gitignore file and add this to it
+target
+// initialize git
+git init
+git add .
+git commit -m "initial check in"
+
+// deploy to heroku
+heroku login
+
+heroku create // this creates a heroku stack with a URL for the app and a remote GIT repo on heroku
+
+git push heroku master
+
+// other debugging situations when git loses network connection when you are trying to push
+git remote -v
+git remote rm heroku // remote the remote git if it’s not created properly
+// sometimes if you have an old version of git, you may encounter ssh issues. For example, my cygwin install came with a buggy version of git. make sure cygwin/git is not in the path and install a fresh GIT
+
+// look at logs
+heroku logs --tail
+
+// create some orders on the web site
+// demonstrate the REST APIs using IntelliJ REST Client
+
+// Other Heroku features
+//collaboration. you can add collaborators to your project by going to the Heroku dashboard and inviting people you want to collaborate
+
+// if you want to clone the repo (e.g.). You need to use the GIT url for your app
+git clone git@heroku.com:mysterious-reef-4217.git -o heroku
+
+// other useful heroku commands (fierce-beach-2514 is my example app. you need to use your own)
+heroku addons --app fierce-beach-2514
+
+heroku pg:info --app heroku fierce-beach-2514
+
+
+// Step9: Using Roo Add-ons (e.g., solr add on)
+//Install Solr (http://www.apache.org/dyn/closer.cgi/lucene/solr/)
+
+// start it
+java -jar start.jar
+
+//verify it's running
+http://localhost:8983/solr/admin/
+
+// delete existing index in case you have it already installed and you want to start fresh
+http://localhost:8983/solr/update?stream.body=%3Cdelete%3E%3Cquery%3E*:*%3C/query%3E%3C/delete%3E&commit=true
+
+//add SolrJ to your project
+//start roo
+roo>solr setup
+roo>solr all
+//fix the SolrJ dependency in pom.xml to use the following.The reason for this error is that Solr has changed the javabin format on 3_x branch and on trunk and SolrMeter uses SolrJ.
+    <dependency>
+            <groupId>org.apache.solr</groupId>
+            <artifactId>solr-solrj</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+
+mvn package
+mvn tomcat:run
+
+// add some data to your app and search for them in the admin tool
+http://localhost:8983/solr/admin/
+
+// add iReport category since it's not in the Solr index right now. also show how the existing categories in the index work
+// SolrJ offers REST APIs for search
+// You can use these APIs in your web app to provide full text search capabilities
+
+
