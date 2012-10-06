@@ -204,14 +204,16 @@ public final class create_jspx extends org.apache.jasper.runtime.HttpJspBase
     org.apache.jasper.runtime.AnnotationHelper.postConstruct(_jsp_annotationprocessor, _jspx_th_field_005fdatetime_005f0);
     _jspx_th_field_005fdatetime_005f0.setJspContext(_jspx_page_context);
     _jspx_th_field_005fdatetime_005f0.setParent(_jspx_parent);
-    // /WEB-INF/views/quotes/create.jspx(10,181) name = z type = java.lang.String reqTime = true required = false fragment = false deferredValue = false expectedTypeName = java.lang.String deferredMethod = false methodSignature = null
+    // /WEB-INF/views/quotes/create.jspx(10,196) name = z type = java.lang.String reqTime = true required = false fragment = false deferredValue = false expectedTypeName = java.lang.String deferredMethod = false methodSignature = null
     _jspx_th_field_005fdatetime_005f0.setZ("HGR1Ls/hA5YaI7WdBYzhb1hTfTk=");
-    // /WEB-INF/views/quotes/create.jspx(10,181) name = id type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = java.lang.String deferredMethod = false methodSignature = null
+    // /WEB-INF/views/quotes/create.jspx(10,196) name = id type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = java.lang.String deferredMethod = false methodSignature = null
     _jspx_th_field_005fdatetime_005f0.setId("c_com_ingenuity_salesquote_domain_Quote_quotedate");
-    // /WEB-INF/views/quotes/create.jspx(10,181) name = field type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = java.lang.String deferredMethod = false methodSignature = null
+    // /WEB-INF/views/quotes/create.jspx(10,196) name = field type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = java.lang.String deferredMethod = false methodSignature = null
     _jspx_th_field_005fdatetime_005f0.setField("quotedate");
-    // /WEB-INF/views/quotes/create.jspx(10,181) name = dateTimePattern type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = java.lang.String deferredMethod = false methodSignature = null
+    // /WEB-INF/views/quotes/create.jspx(10,196) name = dateTimePattern type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = java.lang.String deferredMethod = false methodSignature = null
     _jspx_th_field_005fdatetime_005f0.setDateTimePattern((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${quote_quotedate_date_format}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+    // /WEB-INF/views/quotes/create.jspx(10,196) name = render type = java.lang.Boolean reqTime = true required = false fragment = false deferredValue = false expectedTypeName = java.lang.String deferredMethod = false methodSignature = null
+    _jspx_th_field_005fdatetime_005f0.setRender(new Boolean(false));
     _jspx_th_field_005fdatetime_005f0.doTag();
     org.apache.jasper.runtime.AnnotationHelper.preDestroy(_jsp_annotationprocessor, _jspx_th_field_005fdatetime_005f0);
     return false;

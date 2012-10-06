@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="4.806" errors="0" skipped="0" tests="9" name="com.ingenuity.salesquote.domain.CategoryIntegrationTest">
+<testsuite failures="0" time="3.756" errors="0" skipped="0" tests="9" name="com.ingenuity.salesquote.domain.CategoryIntegrationTest">
   <properties>
+    <property name="DATABASE_URL" value="postgres://postgres:admin94063++@localhost:5432/salesquote"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.6.0_24\jre\bin"/>
     <property name="java.vm.version" value="19.1-b02"/>
@@ -10,6 +11,7 @@
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
     <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="idea.launcher.port" value="7532"/>
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="Service Pack 1"/>
@@ -27,7 +29,7 @@
     <property name="os.name" value="Windows 7"/>
     <property name="classworlds.conf" value="C:\apache-maven-3.0.4\bin\m2.conf"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk1.6.0_24\bin;.;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Java\jdk1.6.0_24\\bin;C:\Program Files (x86)\CollabNet Subversion Client;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Git\bin;C:\oracle\apps\product\11.2.0\client_1\bin;C:\oracle\ora92\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\DMIX;C:\Program Files\Dell\Dell Wireless WLAN Card;C:\Program Files\WIDCOMM\Bluetooth Software\;C:\Program Files\WIDCOMM\Bluetooth Software\syswow64;C:\Program Files (x86)\NTRU Cryptosystems\NTRU TCG Software Stack\bin\;C:\Program Files\NTRU Cryptosystems\NTRU TCG Software Stack\bin\;C:\Program Files\Wave Systems Corp\Gemalto\Access Client\v5\;C:\Program Files (x86)\Common Files\Roxio Shared\DLLShared\;C:\Program Files (x86)\Common Files\Roxio Shared\10.0\DLLShared\;C:\Program Files\MySQL\MySQL Server 5.1\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\Windows Live\Shared;C:\apache-maven-3.0.4\bin;C:\Program Files (x86)\QuickTime\QTSystem\;C:\apache-ant-1.8.4\bin;C:\Program Files\spring-roo-1.2.2.RELEASE\bin;C:\Program Files (x86)\JetBrains\IntelliJ IDEA 11.1.2\bin;C:\Program Files (x86)\Windows Live\Shared;C:\apache-maven-3.0.4\bin;C:\Program Files (x86)\Heroku\bin"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.6.0_24\bin;.;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\JetBrains\IntelliJ IDEA 11.1.2\bin\..\.\bin;C:\Program Files\Java\jdk1.6.0_24\\bin;C:\Program Files (x86)\CollabNet Subversion Client;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Git\bin;C:\oracle\apps\product\11.2.0\client_1\bin;C:\oracle\ora92\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\DMIX;C:\Program Files\Dell\Dell Wireless WLAN Card;C:\Program Files\WIDCOMM\Bluetooth Software\;C:\Program Files\WIDCOMM\Bluetooth Software\syswow64;C:\Program Files (x86)\NTRU Cryptosystems\NTRU TCG Software Stack\bin\;C:\Program Files\NTRU Cryptosystems\NTRU TCG Software Stack\bin\;C:\Program Files\Wave Systems Corp\Gemalto\Access Client\v5\;C:\Program Files (x86)\Common Files\Roxio Shared\DLLShared\;C:\Program Files (x86)\Common Files\Roxio Shared\10.0\DLLShared\;C:\Program Files\MySQL\MySQL Server 5.1\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\Windows Live\Shared;C:\apache-maven-3.0.4\bin;C:\Program Files (x86)\QuickTime\QTSystem\;C:\apache-ant-1.8.4\bin;C:\Program Files\spring-roo-1.2.2.RELEASE\bin;C:\Program Files (x86)\JetBrains\IntelliJ IDEA 11.1.2\bin;C:\Program Files (x86)\Windows Live\Shared;C:\apache-maven-3.0.4\bin;C:\Program Files (x86)\Heroku\bin;c:\program files (x86)\jetbrains\intellij idea 11.1.2\jre\jre\bin"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="50.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Server Compiler"/>
@@ -35,10 +37,11 @@
     <property name="user.home" value="C:\Users\vdurgavarjhula"/>
     <property name="user.timezone" value="America/Los_Angeles"/>
     <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
-    <property name="file.encoding" value="Cp1252"/>
     <property name="java.specification.version" value="1.6"/>
+    <property name="file.encoding" value="windows-1252"/>
+    <property name="idea.launcher.bin.path" value="C:\Program Files (x86)\JetBrains\IntelliJ IDEA 11.1.2\bin"/>
     <property name="user.name" value="vdurgavarjhula"/>
-    <property name="java.class.path" value="C:\apache-maven-3.0.4\boot\plexus-classworlds-2.4.jar"/>
+    <property name="java.class.path" value="C:\apache-maven-3.0.4\boot\plexus-classworlds-2.4.jar;C:\Program Files (x86)\JetBrains\IntelliJ IDEA 11.1.2\lib\idea_rt.jar"/>
     <property name="java.vm.specification.version" value="1.0"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="C:\Program Files\Java\jdk1.6.0_24\jre"/>
@@ -58,13 +61,13 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase time="4.247" classname="com.ingenuity.salesquote.domain.CategoryIntegrationTest" name="testMarkerMethod"/>
-  <testcase time="0.291" classname="com.ingenuity.salesquote.domain.CategoryIntegrationTest" name="testCountCategorys"/>
-  <testcase time="0.027" classname="com.ingenuity.salesquote.domain.CategoryIntegrationTest" name="testFindCategory"/>
-  <testcase time="0.027" classname="com.ingenuity.salesquote.domain.CategoryIntegrationTest" name="testFindAllCategorys"/>
-  <testcase time="0.028" classname="com.ingenuity.salesquote.domain.CategoryIntegrationTest" name="testFindCategoryEntries"/>
-  <testcase time="0.034" classname="com.ingenuity.salesquote.domain.CategoryIntegrationTest" name="testFlush"/>
-  <testcase time="0.041" classname="com.ingenuity.salesquote.domain.CategoryIntegrationTest" name="testMergeUpdate"/>
-  <testcase time="0.07" classname="com.ingenuity.salesquote.domain.CategoryIntegrationTest" name="testPersist"/>
-  <testcase time="0.041" classname="com.ingenuity.salesquote.domain.CategoryIntegrationTest" name="testRemove"/>
+  <testcase time="3.293" classname="com.ingenuity.salesquote.domain.CategoryIntegrationTest" name="testMarkerMethod"/>
+  <testcase time="0.249" classname="com.ingenuity.salesquote.domain.CategoryIntegrationTest" name="testCountCategorys"/>
+  <testcase time="0.024" classname="com.ingenuity.salesquote.domain.CategoryIntegrationTest" name="testFindCategory"/>
+  <testcase time="0.023" classname="com.ingenuity.salesquote.domain.CategoryIntegrationTest" name="testFindAllCategorys"/>
+  <testcase time="0.026" classname="com.ingenuity.salesquote.domain.CategoryIntegrationTest" name="testFindCategoryEntries"/>
+  <testcase time="0.022" classname="com.ingenuity.salesquote.domain.CategoryIntegrationTest" name="testFlush"/>
+  <testcase time="0.048" classname="com.ingenuity.salesquote.domain.CategoryIntegrationTest" name="testMergeUpdate"/>
+  <testcase time="0.048" classname="com.ingenuity.salesquote.domain.CategoryIntegrationTest" name="testPersist"/>
+  <testcase time="0.023" classname="com.ingenuity.salesquote.domain.CategoryIntegrationTest" name="testRemove"/>
 </testsuite>

@@ -7,6 +7,6 @@
         <field:input field="customer" id="c_com_ingenuity_salesquote_domain_Quote_customer" required="true" z="DLAKgauANs+JaxKgDnXnTgzJyTA="/>
         <field:input field="salesrep" id="c_com_ingenuity_salesquote_domain_Quote_salesrep" required="true" z="5gYDmGt6/XoIJGz5tVz+uqOEaT8="/>
         <field:input field="discount" id="c_com_ingenuity_salesquote_domain_Quote_discount" z="di1M4ZauMOb0rd6hzduZ5bDVsr0="/>
-        <field:datetime dateTimePattern="${quote_quotedate_date_format}" field="quotedate" id="c_com_ingenuity_salesquote_domain_Quote_quotedate" z="HGR1Ls/hA5YaI7WdBYzhb1hTfTk="/>
+        <field:datetime render="false" dateTimePattern="${quote_quotedate_date_format}" field="quotedate" id="c_com_ingenuity_salesquote_domain_Quote_quotedate" z="HGR1Ls/hA5YaI7WdBYzhb1hTfTk="/>
     </form:update>
 </div>

@@ -3,10 +3,7 @@ package com.ingenuity.salesquote.domain;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-import javax.persistence.CascadeType;
-import javax.persistence.ManyToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.roo.addon.javabean.RooJavaBean;
@@ -34,4 +31,11 @@ public class Quote {
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(style = "M-")
     private Date quotedate;
+    @PreUpdate
+    @PrePersist
+       void updateDates() {
+         if (quotedate == null) {
+           quotedate = new Date();
+         }
+       }
 }
