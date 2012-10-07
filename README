@@ -202,13 +202,12 @@ heroku pg:info --app heroku fierce-beach-2514
 
 
 // Step9: Using Roo Add-ons (e.g., solr add on)
-//Install Solr (http://www.apache.org/dyn/closer.cgi/lucene/solr/)
-
-// start it
-java -jar start.jar
-
-//verify it's running
-http://localhost:8983/solr/admin/
+//Install Solr 
+Download the server: http://www.apache.org/dyn/closer.cgi/lucene/solr/
+Unzip (untar) the download: tar xf apache-solr-1.4.0.tgz
+Change into the solr example directory: cd apache-solr-1.4.0/example
+Start the Solr server: java -jar start.jar
+Verify Solr is running correctly: http://localhost:8983/solr/admin/
 
 // delete existing index in case you have it already installed and you want to start fresh
 http://localhost:8983/solr/update?stream.body=%3Cdelete%3E%3Cquery%3E*:*%3C/query%3E%3C/delete%3E&commit=true

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_ingenuity_salesquote_domain_Quote" items="${quotes}" z="/kOYC3+ssJ0bFwplC3g5QD+IVqk=">
+        <table:table data="${quotes}" id="l_com_ingenuity_salesquote_domain_Quote" path="/quotes" z="VM10VLX8OmauXFxV4IsEOpKCYBw=">
+            <table:column id="c_com_ingenuity_salesquote_domain_Quote_orders" property="orders" z="SdtwXhFB710Hs+zlbgAoLyit1R0="/>
+            <table:column id="c_com_ingenuity_salesquote_domain_Quote_customer" property="customer" z="/MUbrvCGOZgMOftnHKQcF35HTqs="/>
+            <table:column id="c_com_ingenuity_salesquote_domain_Quote_salesrep" property="salesrep" z="LndRic5O2v+3RGC4FPhWjZtwo1w="/>
+            <table:column id="c_com_ingenuity_salesquote_domain_Quote_discount" property="discount" z="rURqfakFHck+lIgmsu0AYM0TWDw="/>
+            <table:column date="true" dateTimePattern="${quote_quotedate_date_format}" id="c_com_ingenuity_salesquote_domain_Quote_quotedate" property="quotedate" z="aMl2qTlnFx+/L5wTz6tuZJp5fhI="/>
+        </table:table>
+    </page:list>
+</div>

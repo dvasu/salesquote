@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_ingenuity_salesquote_domain_Sku" modelAttribute="sku" path="/skus" versionField="Version" z="0cEi0g2txm9lccChldENQ7uIvb0=">
+        <field:input field="name" id="c_com_ingenuity_salesquote_domain_Sku_name" required="true" z="CPt5E79+KZw2AVUc4anka5qygwI="/>
+        <field:input field="price" id="c_com_ingenuity_salesquote_domain_Sku_price" validationMessageCode="field_invalid_number" z="vuuF8seHh4G4A7eDxkQ3e4t3Pv0="/>
+        <field:input field="term" id="c_com_ingenuity_salesquote_domain_Sku_term" z="HCfbC+zuz4OURcgA0jN/s1WGa8Q="/>
+        <field:select field="category" id="c_com_ingenuity_salesquote_domain_Sku_category" itemValue="id" items="${categorys}" path="/categorys" z="2x5uf1AACW+wKxBQz5kTSEmD51Q="/>
+    </form:update>
+</div>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_com_ingenuity_salesquote_domain_Category" modelAttribute="category" path="/categorys" render="${empty dependencies}" z="WGmXVwvSh7MBTbQo21ZokX3sTlY=">
+        <field:input field="name" id="c_com_ingenuity_salesquote_domain_Category_name" required="true" z="sJUcTccbuX58xhdnD1vhkQPOEAM="/>
+        <field:input field="description" id="c_com_ingenuity_salesquote_domain_Category_description" required="true" z="4WjbGfueOtcldxjdBXCqkXnlc/E="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_com_ingenuity_salesquote_domain_Category" render="${not empty dependencies}" z="KEqEusG94IrujprjTzJTcaZ9MWQ="/>
+</div>
