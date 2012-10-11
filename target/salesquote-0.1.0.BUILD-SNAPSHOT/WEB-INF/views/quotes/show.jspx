@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_ingenuity_salesquote_domain_Quote" object="${quote}" path="/quotes" z="7f0o8qlubi1yoLSkllGFPS09t9o=">
+        <field:display field="orders" id="s_com_ingenuity_salesquote_domain_Quote_orders" object="${quote}" z="aRmy7+/hfUTDiI8sdKsPHaG51Vg="/>
+        <field:display field="customer" id="s_com_ingenuity_salesquote_domain_Quote_customer" object="${quote}" z="U9s9H1UHViK6Yk9HLoBvI9YDY68="/>
+        <field:display field="salesrep" id="s_com_ingenuity_salesquote_domain_Quote_salesrep" object="${quote}" z="sG4go5WaTEFmJvYlkiq+FnpYJXA="/>
+        <field:display field="discount" id="s_com_ingenuity_salesquote_domain_Quote_discount" object="${quote}" z="YlJ5Fsp4y2TwvGHRivo1HmdPMW0="/>
+        <field:display date="true" dateTimePattern="${quote_quotedate_date_format}" field="quotedate" id="s_com_ingenuity_salesquote_domain_Quote_quotedate" object="${quote}" z="+KZn+TAHt5q4CgEj3tMZGGqcpHU="/>
+    </page:show>
+</div>

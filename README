@@ -199,6 +199,11 @@ git clone git@heroku.com:mysterious-reef-4217.git -o heroku
 heroku addons --app fierce-beach-2514
 
 heroku pg:info --app heroku fierce-beach-2514
+//To stop
+heroku ps:scale web=0
+//To start
+restart: heroku ps:scale web=1
+
 
 
 // Step9: Using Roo Add-ons (e.g., solr add on)
@@ -237,3 +242,7 @@ http://localhost:8983/solr/admin/
 // You can use these APIs in your web app to provide full text search capabilities
 
 
+// How to avoid recreating the schema each time you deploy
+Comment out this line in persistence.xml  
+
+<property name="hibernate.hbm2ddl.auto" value="create"/>
