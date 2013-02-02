@@ -166,6 +166,12 @@ web: java $JAVA_OPTS -jar target/dependency/jetty-runner.jar --port $PORT target
 // prepare git
 //Prevent build artifacts from going into revision control by creating a .gitignore file in the project root and add this to it
 target
+target
+salesquote.iml
+salesquote.ipr
+salesquote.iws
+projectFilesBackup
+
 // initialize git
 git init
 git add .
@@ -175,6 +181,12 @@ git commit -m "initial check in"
 heroku login
 
 heroku create // this creates a heroku stack with a URL for the app and a remote GIT repo on heroku
+
+// create keys if necessary
+ssh-keygen -t rsa
+
+// add the keys to heroku
+heroku keys:add
 
 git push heroku master
 
